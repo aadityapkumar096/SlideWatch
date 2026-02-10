@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "Bundler",   // ✅ for browser bundling
+    "outDir": "./public",
+    "rootDir": "./public",
+    "strict": true,
+    "noEmitOnError": true,
+    "lib": ["ES2020", "DOM"],
+    "skipLibCheck": true,
+    "types": ["google.maps"]
+  },
+  "include": ["public/app.ts"],
+  "exclude": ["node_modules"]
+}

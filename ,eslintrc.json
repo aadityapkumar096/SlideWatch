@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "env": { "es2023": true, "node": true, "browser": false },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:n/recommended",
+    "plugin:promise/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2023,
+    "project": false
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true
+    }
+  },
+  "overrides": [
+    {
+      "files": ["public/**/*.ts"],
+      "env": { "browser": true, "node": false }
+    }
+  ],
+  "rules": {
+    "no-console": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "import/order": [
+      "warn",
+      { "newlines-between": "always", "alphabetize": { "order": "asc", "caseInsensitive": true } }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SlideWatch</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="color-scheme" content="dark light" />
+  </head>
+  <body>
+    <header class="glass header">
+      <div class="title">
+        <span class="orb"></span>
+        <h1>SlideWatch</h1>
+      </div>
+      <p class="sub">Liquid-glass UI • Slope • Rain • Quakes • Cyclone/Flood • Tsunami • Routing</p>
+    </header>
+
+    <section id="controls" class="glass controls">
+      <div class="row wrap">
+        <div class="seg">
+          <input id="search" placeholder="Search place…" />
+        </div>
+        <div class="seg">
+          <label>Lat <input id="lat" type="number" step="0.000001" placeholder="12.9716" /></label>
+        </div>
+        <div class="seg">
+          <label>Lon <input id="lon" type="number" step="0.000001" placeholder="77.5946" /></label>
+        </div>
+        <div class="seg">
+          <button id="btnGo" class="btn btn-primary">Analyze</button>
+          <button id="btnWatch" class="btn">Start Live</button>
+        </div>
+        <div class="seg time"><span id="localTime">—</span></div>
+      </div>
+      <div class="row wrap">
+        <label class="ios-switch"
+          ><input id="toggleTraffic" type="checkbox" /><span>Traffic</span></label
+        >
+        <label class="ios-switch"><input id="toggleRain" type="checkbox" /><span>Rain</span></label>
+        <label class="ios-switch"
+          ><input id="toggleStorms" type="checkbox" /><span>Storm tracks</span></label
+        >
+      </div>
+    </section>
+
+    <main>
+      <div id="map" class="glass"></div>
+
+      <aside id="panel">
+        <div class="card glass">
+          <h3>Risk</h3>
+          <div id="riskScore" class="risk">—</div>
+          <ul id="riskBreakdown"></ul>
+          <small id="emiNote" class="muted">—</small>
+        </div>
+
+        <div class="card glass">
+          <h3>Terrain</h3>
+          <div id="terrain">—</div>
+        </div>
+
+        <div class="card glass">
+          <h3>Weather</h3>
+          <div id="weather">—</div>
+          <div id="alerts"></div>
+        </div>
+
+        <div class="card glass">
+          <h3>Cyclone & Flood</h3>
+          <div id="cyclone">—</div>
+          <div id="flood">—</div>
+        </div>
+
+        <div class="card glass">
+          <h3>Earthquakes</h3>
+          <div id="quakes">—</div>
+        </div>
+
+        <div class="card glass">
+          <h3>Tsunami</h3>
+          <div id="tsunami">—</div>
+        </div>
+
+        <div class="card glass">
+          <h3>Emergency Routing</h3>
+          <div class="row">
+            <select id="poiType">
+              <option value="hospital">Hospitals</option>
+              <option value="police">Police</option>
+              <option value="fire_station">Fire Stations</option>
+            </select>
+            <button id="btnPOI" class="btn">Find</button>
+          </div>
+          <ul id="poiList"></ul>
+        </div>
+
+        <div class="card glass">
+          <h3>Export</h3>
+          <button id="btnExport" class="btn btn-primary">Save Report to Drive</button>
+          <span id="exportStatus"></span>
+        </div>
+
+        <div class="card glass legend" id="legend">
+          <h3>Legend</h3>
+          <div><span class="lg lg-track"></span> Storm track</div>
+          <div><span class="lg lg-cone"></span> Forecast cone</div>
+          <div><span class="lg lg-risk"></span> Risk radius</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="glass footer">
+      <small
+        >⚠️ Advisory only; follow official instructions. Data: Google Maps, OpenWeather,
+        AccuWeather, USGS, NOAA/PTWC & NHC.</small
+      >
+    </footer>
+
+    <!-- Built JS (tsconfig.client compiles app.ts → app.js) -->
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
